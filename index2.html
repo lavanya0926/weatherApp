@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body{
+            margin:0;
+            font-family: Arial,sans-serif;
+            background-size: cover;
+            background-position:center;
+            background-repeat: no-repeat;
+            color:white;
+        }
+        .container{
+            display: flex;
+            max-width:1300px;
+            margin:20px auto;
+            background: rgba(82, 80, 80, 0.1) ;
+            border-radius:1px;
+            overflow:hidden;
+            color:black;
+        }         
+        .left-panel{
+            padding:20px;
+            background:rgb(179, 182, 182);
+            width:250px;
+            text-align: center;
+        }
+        .search{
+            margin-bottom: 20px;
+           }
+         .search input{
+            width:70%;
+            padding:10px;
+            border:none;
+            border-radius:5px;
+         }
+         .search i{
+            font-size:35px;
+            cursor:pointer;
+            position:relative;
+            top:10px;
+            right:40px;
+            color:rgb(61,61,239);
+         }
+         .current-weather{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+         }
+
+        .current-weather img{
+            max-width:100px;
+            height:auto;
+            margin-left:10px 0 ;
+        }
+
+       .right-panel{
+        padding:20px;
+        background-color:  rgb(210, 214, 214);
+        width:1000px;
+       }
+          .days{
+            display:flex;
+            gap:20px;
+          }
+
+         .degree{
+            display:flex;
+            height:50px;
+            gap:15px;
+         }
+
+        .degree h1{
+            width:50px;
+            height:50px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+            margin: 0;
+        }
+
+        .celsius,.fahrenheit{
+            border:2px solid black;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            cursor:pointer;
+        }
+         .header{
+            display: flex;
+            gap:650px;
+         }
+          .days h3{
+            cursor:pointer;
+            padding:10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+          }
+           .days h3.active{
+            background-color: rgba(255, 255, 255, 0.2);
+            color:blue;
+           }
+
+      .days div,.hourly-forecast div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+        .hourly-forecast, .highlights{
+             display: flex;
+             flex-wrap: wrap;
+             gap:15px;
+        } 
+         .hourly-forecast div,.highlights div{
+            background-color: whitesmoke;
+            height:160px;
+            width:100px;
+            padding:10px;
+            border-radius: 10px;
+            text-align: center;
+         }
+        .current-weather img,
+        .hourly-forecast img {
+            max-width: 80px;
+            height: auto;
+            margin: 10px 0;
+        }
+         .highlights div{
+            height:150px;
+            width:280px;
+         }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <div class="search">
+                <input type="text" id="cityInput" placeholder="search">
+                <i class="fa-solid fa-magnifying-glass-location " id="i"></i>
+            </div>
+            <div class="current-weather" id="currentWeather"></div>
+            <div class="datetime-display" id="dateTimePanel"></div>
+            <div class="datetime-display" id="rightPanelTime"></div>
+        </div>
+        <div class="right-panel">
+            <div>
+                <div class="header">
+                    <div class="days">
+                        <h3 id="todayTab">Today</h3>
+                        <h3 id="weekTab" class="active">Week</h3>
+                    </div>
+                    <div class="degree">
+                        <h1 class="celsius" id="celsius">°C</h1>
+                        <h1 class="fahrenheit" id="fahrenheit">°F</h1>
+                    </div>
+                </div>
+                <div class="hourly-forecast" id="hourlyForecast"></div>
+            </div>
+            <div>
+                <h3>Today's Highlights</h3>
+                <div class="highlights" id="highlights"></div>
+                <h3><center>Weather Prediction app by <a href="">LAVANYA</a></center></h3>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./app2.js"></script>
+</body>
+
+</html>
